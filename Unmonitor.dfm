@@ -2,7 +2,7 @@ object Formmonitor: TFormmonitor
   Left = 0
   Top = 0
   Caption = #20998#25315#30417#25511
-  ClientHeight = 655
+  ClientHeight = 679
   ClientWidth = 1182
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -131,8 +131,8 @@ object Formmonitor: TFormmonitor
   object Memo1: TMemo
     Left = 0
     Top = 600
-    Width = 1000
-    Height = 55
+    Width = 1100
+    Height = 79
     Align = alLeft
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -148,10 +148,10 @@ object Formmonitor: TFormmonitor
     TabOrder = 1
   end
   object LBClientIP: TListBox
-    Left = 1000
+    Left = 1100
     Top = 600
-    Width = 182
-    Height = 55
+    Width = 82
+    Height = 79
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -162,6 +162,9 @@ object Formmonitor: TFormmonitor
     ItemHeight = 28
     ParentFont = False
     TabOrder = 2
+    ExplicitLeft = 1000
+    ExplicitWidth = 182
+    ExplicitHeight = 55
   end
   object IdTCPClient1: TIdTCPClient
     OnConnected = IdTCPClient1Connected

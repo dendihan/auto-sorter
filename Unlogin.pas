@@ -1,4 +1,3 @@
-//test for git add by dendi 2016/1/30
 unit Unlogin;
 
 interface

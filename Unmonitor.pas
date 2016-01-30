@@ -263,6 +263,7 @@ begin
     ZPLCode := MakeZPLCode(GlobalPrint_barcode, GlobalPrint_dest, GlobalPrint_pcs, GlobalPrint_origin);
 //    StringToPrinter(ZPLCode);
     WriteRawStringToPrinter(printer,ZPLcode);
+    writememo('补打出口包装袋标签：' + GlobalPrint_barcode);
     formmain.RecordLog('补打出口包装袋标签：' + GlobalPrint_barcode);
   except
     on e: Exception do
@@ -401,7 +402,7 @@ end;
 
 procedure TFormMonitor.WriteMemo(memo: string);
 begin
- Memo1.Lines.Insert(0, Formatdatetime('yyyy-mm-dd HH:nn:ss', now()) + ' -> ' + memo);
+ Memo1.Lines.Insert(0, Formatdatetime('yyyy-mm-dd HH:nn:ss', now()) + ' -> ' + trim(memo));
 end;
 //~~~~~~~~~~~~~~~~~~common use module~~~~~~~~~~~~~
 procedure TFormMonitor.BarCodeNoReadNotifyInner;
@@ -1399,7 +1400,7 @@ begin
     end;
     IdTCPServer1.Active := False;
 //    OPCserver1.Destroy;
-    OPCserver1.OnServerShutDown(self,'');
+    OPCserver1.OnServerShutDown(OPCserver1,'');
 
     Formmonitor.free;
     Formmonitor:=nil;
@@ -1764,7 +1765,8 @@ begin
   IdTCPClient1.Port := GlobalScanPort;
   ScanConn;
   WriteMemo('Socket 服务启动');
-
+// 打印出口包装单队列
+  M_PrintQueue := TQueue<TPrint>.Create();
 //创建READPLC 线程
   try
     READPLC := TReadPLC.Create(False { true suspended } );
