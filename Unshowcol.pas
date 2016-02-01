@@ -77,6 +77,8 @@ begin
       DM.ADOQuery1.Next;
     end;
   }
+
+//reload DB DATA from trmpcol arrar if click cancel
   with DM.ADOQuery1 do
     begin
       First;
@@ -139,9 +141,9 @@ begin
 //  if DM.ADOQuery1.State <> dsBrowse then
 //  DM.ADOQuery1.Post;
   cxGrid1DBTableView1.DataController.FocusedRecordIndex := 1;
-  cxGrid1DBTableView1.DataController.FocusedRecordIndex := 0;
+  cxGrid1DBTableView1.DataController.FocusedRecordIndex := 0; //change FocusedRecord to post DB data
 //  DM.ADOQuery1.Refresh;
-  Formdatacompute.showcolumn;
+  Formdatacompute.showcolumn;//refresh
   Formshowcol.Close;
 end;
 
@@ -173,6 +175,7 @@ begin
   count:=cxGrid1DBTableView1.DataController.RowCount;
   setlength(tempcol,count);
 
+//tempcol[i] to record initial value of showcol
   for I := 0 to count-1 do
     tempcol[i]:=cxGrid1DBTableView1.DataController.Values[i, 1];
 //    DM.ADOQuery1.first;

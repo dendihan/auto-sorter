@@ -216,8 +216,6 @@ object Formin: TFormin
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 5
-    ExplicitLeft = 400
-    ExplicitWidth = 982
     object Panel4: TPanel
       Left = 0
       Top = 308
@@ -226,7 +224,6 @@ object Formin: TFormin
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 982
       object StatusBar1: TStatusBar
         Left = 0
         Top = 24
@@ -248,7 +245,6 @@ object Formin: TFormin
           item
             Width = 50
           end>
-        ExplicitWidth = 982
       end
       object StatusBar2: TStatusBar
         Left = 0
@@ -263,7 +259,6 @@ object Formin: TFormin
           item
             Width = 50
           end>
-        ExplicitWidth = 982
       end
     end
     object Panel5: TPanel
@@ -274,7 +269,6 @@ object Formin: TFormin
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 982
       object Image1: TImage
         Left = 0
         Top = 0

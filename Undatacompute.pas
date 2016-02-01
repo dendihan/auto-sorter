@@ -91,6 +91,7 @@ implementation
 
 uses UnDM, UnMain, Unshowcol;
 
+// this button is used to change column show for FJDATA
 procedure TFormdatacompute.BtncolClick(Sender: TObject);
 begin
   FormMain.RecordLog('更改自定义列');
@@ -160,13 +161,13 @@ begin
   DateTimePicker1.Date:=now();
   DateTimePicker2.Date:=now();
   Btnquery.Click;
-  showcolumn;
+  showcolumn; // to load column define in DB
 
 
   //  TDateTimefield(DM.ADO_VFJD_query.Fields[2]).displayformat:='yyyy-mm-dd';
 end;
 
-
+// to load column define in DB
 procedure TFormdatacompute.showcolumn;
 var
   I:integer;
@@ -180,6 +181,8 @@ begin
   for I := 1 to DM.ADOQuery1.RecordCount do
     begin
 //      DM.ADOQuery1.Fieldbyname('COLID0').AsString;
+//use findcomponent to find TcxGridDBColumn ,serach by name
+//and query the value of SHOW00 in DB which define TcxGridDBColumn visiable
       tempcom:=findcomponent(DM.ADOQuery1.Fieldbyname('COLID0').AsString);
       if tempcom <> nil then
         begin

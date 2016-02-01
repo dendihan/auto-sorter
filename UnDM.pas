@@ -135,7 +135,8 @@ implementation
 
 procedure TDMtest.ADO_OUTA_queryAfterScroll(DataSet: TDataSet);
 begin
-ADO_OUTB_query.Filter:='labbarcode='+''''+ADO_OUTA_query.FieldByName('labbarcode').AsString+'''';
+  //use Fliter to show
+  ADO_OUTB_query.Filter:='labbarcode='+''''+ADO_OUTA_query.FieldByName('labbarcode').AsString+'''';
 end;
 
 procedure TDMtest.ADO_POUT_queryAfterScroll(DataSet: TDataSet);
@@ -192,6 +193,11 @@ end;
 procedure TDMtest.ADO_VFJD_queryPSTATEGetText(Sender: TField; var Text: string;
   DisplayText: Boolean);
 begin
+  //in DB the value may be 0,1,2 and so on
+  //in GRID we want to dispaly string like 'begin' 'end' 'go on'
+  // use GETTEST to change display as follow
+  // add by dendi 2016/2/1
+
   if sender.AsInteger=0 then
     text:='Î´¿ªÊ¼'
   else if sender.AsInteger=1 then

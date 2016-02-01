@@ -91,6 +91,7 @@ begin
         begin
 
       //---------delete action with role-------------------
+      //---------should delete all of action
           try
             with DM.ADOQuery1 do
               begin

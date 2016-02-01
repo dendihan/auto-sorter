@@ -84,7 +84,7 @@ end;
 
 procedure TFormgetdata.BtngetClick(Sender: TObject);
 var
- nodeList: TsdNodeList;
+ nodeList: TsdNodeList; //XML
  node: TXmlNode;
  i: Integer;
  xml: TNativeXml;
@@ -111,11 +111,22 @@ begin
  node := xml.Root;
  nodeList := TsdNodeList.Create(False);
  node.FindNodes('ITEM', nodeList);
+// ITEM is NODE NAME XML like this
+//<?xml version="1.0" encoding="utf-8"?>
+//<root>
+//  <rows>
+//	<ITEM BARCODE='5000011755017' FROMDATE='2015-05-08' FROMNAME='张三1' FROMADDR='厦门1' FROMCO='厦门长亨信息科技1' FROMDETAIL='厦门厦禾路888号1' FROMTEL='13912345671' FROMZIPCODE='361000' TONAME='Jackson1' TOADDR='宁波1' TOCO='宁波亿普瑞1' TODETAIL='宁波开发区' TOTEL='13950100001' TOZIPCODE='361001' PNAME='文件资料1' PNUMBER='1' PWEIGHT='2.66' PLENGTH='20' PWIDTH='11' PHEIGHT='11' PCOST='123.02' />
+//	<ITEM BARCODE='5000011755018' FROMDATE='2015-05-08' FROMNAME='张三2' FROMADDR='厦门2' FROMCO='厦门长亨信息科技2' FROMDETAIL='厦门厦禾路888号2' FROMTEL='13912345672' FROMZIPCODE='361000' TONAME='Jackson2' TOADDR='宁波2' TOCO='宁波亿普瑞2' TODETAIL='宁波开发区' TOTEL='13950100002' TOZIPCODE='361002' PNAME='文件资料2' PNUMBER='2' PWEIGHT='4.66' PLENGTH='30' PWIDTH='12' PHEIGHT='12' PCOST='124.02' />
+//	<ITEM BARCODE='5000011755019' FROMDATE='2015-05-08' FROMNAME='张三3' FROMADDR='厦门3' FROMCO='厦门长亨信息科技3' FROMDETAIL='厦门厦禾路888号3' FROMTEL='13912345673' FROMZIPCODE='361000' TONAME='Jackson3' TOADDR='宁波3' TOCO='宁波亿普瑞3' TODETAIL='宁波开发区' TOTEL='13950100003' TOZIPCODE='361003' PNAME='文件资料3' PNUMBER='3' PWEIGHT='5.66' PLENGTH='40' PWIDTH='13' PHEIGHT='13' PCOST='155.02' />
+//  </rows>
+//</root>
+//
  for i := 0 to nodeList.Count - 1 do
  begin
  // ShowMessage(nodeList[i].AttributeByName['FROMNAME'].Value);
  bcStr := nodeList[i].AttributeByName['BARCODE'].Value;
-
+ //nodeList[i].AttributeByName['BARCODE'].Value;
+ //find AttributeByName
  sqlstr := 'DECLARE @BCC INT ' + 'SELECT @BCC=COUNT(BARCODE) FROM FJDATA WHERE BARCODE=''' + bcStr + ''' ' +
  'IF (@BCC=0) ' + 'BEGIN ' +
  'INSERT INTO FJDATA(BARCODE,FJDATE,FROMDATE,FROMNAME,FROMADDR,FROMCO,FROMDETAIL,FROMTEL,FROMZIPCODE,' +
@@ -171,6 +182,8 @@ begin
   end;
 end;
 
+
+//to change display cor
 procedure TFormgetdata.cxGrid1DBTableView1CustomDrawCell(
   Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
   AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);

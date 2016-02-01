@@ -27,7 +27,7 @@ type
 
 var
   Formlogin: TFormlogin;
-  pass:boolean;
+  pass:boolean;//use pass to indicate PASSWORD is TRUE and fix the bug when close form
 
 implementation
 
@@ -87,7 +87,7 @@ end;
 procedure TFormlogin.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   if not pass  then
-    application.Terminate;
+    application.Terminate; //add pass to fix bug if NO PASSWORD will kill application
 end;
 
 
@@ -96,6 +96,8 @@ var
   sqlstr:string;
   i:integer;
 begin
+
+  //to display all USERS in DB by combobox
   sqlstr:='select * from USERS';
   try
     with DM.ADOQuery1 do

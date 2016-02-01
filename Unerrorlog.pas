@@ -62,6 +62,8 @@ uses UnDM, UnMain;
 
 procedure TFormerrorlog.BtnqueryClick(Sender: TObject);
 begin
+
+//can't query PLC VALARMS yet
   try
     with DM.ADO_ERLG_query do
       begin
@@ -85,6 +87,7 @@ end;
 
 procedure TFormerrorlog.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
+   // or use Action := cafree;
    Formerrorlog.Free;
    Formerrorlog:=nil;
 end;

@@ -128,7 +128,6 @@ object Formdatacompute: TFormdatacompute
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 7
-    ExplicitTop = 127
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = DMtest.DSvfjd2

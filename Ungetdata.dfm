@@ -112,7 +112,6 @@ object Formgetdata: TFormgetdata
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 6
-    ExplicitTop = 127
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       OnCustomDrawCell = cxGrid1DBTableView1CustomDrawCell

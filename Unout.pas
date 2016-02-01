@@ -147,6 +147,7 @@ begin
     // frxOuterLabel.PrintOptions.ShowDialog := true;
     // frxOuterLabel.PrepareReport();
     // frxOuterLabel.print;
+    //printer must be shared firstly \\IP\printer name
     printer:='\\'+printer+'\'+'ZDesigner ZM400 300 dpi (ZPL)';
 
     ZPLCode := MakeZPLCode(o_barcode, o_dest, o_pcs, GlobalPrint_origin);

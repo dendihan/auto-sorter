@@ -27,8 +27,6 @@ object Formparam: TFormparam
     Align = alClient
     Caption = #20837#21475#21442#25968
     TabOrder = 8
-    ExplicitLeft = 408
-    ExplicitWidth = 550
     object Panel3: TPanel
       Left = 128
       Top = 96
@@ -153,8 +151,6 @@ object Formparam: TFormparam
     Align = alLeft
     Caption = #31995#32479#21442#25968
     TabOrder = 4
-    ExplicitTop = 71
-    ExplicitHeight = 490
     object Label1: TLabel
       Left = 3
       Top = 112
@@ -164,38 +160,52 @@ object Formparam: TFormparam
     end
     object Label2: TLabel
       Left = 3
-      Top = 191
+      Top = 159
       Width = 140
       Height = 33
       Caption = #23567#36710#24635#25968#65306
     end
     object Label3: TLabel
       Left = 3
-      Top = 273
+      Top = 225
       Width = 140
       Height = 33
       Caption = #26368#22810#22280#25968#65306
     end
     object Label4: TLabel
-      Left = 0
-      Top = 351
+      Left = 3
+      Top = 288
       Width = 118
       Height = 33
       Caption = 'PLC IP'#65306
     end
     object Label5: TLabel
       Left = 3
-      Top = 431
+      Top = 346
       Width = 151
       Height = 33
       Caption = #24037#25511#26426' IP'#65306
     end
     object Label6: TLabel
       Left = 0
-      Top = 507
+      Top = 406
       Width = 193
       Height = 33
       Caption = 'SOCKET'#31471#21475#65306
+    end
+    object Label7: TLabel
+      Left = 3
+      Top = 462
+      Width = 143
+      Height = 33
+      Caption = #25195#30721#22120'IP'#65306
+    end
+    object Label8: TLabel
+      Left = 3
+      Top = 518
+      Width = 168
+      Height = 33
+      Caption = #25195#30721#22120#31471#21475#65306
     end
     object DBEdit1: TDBEdit
       Left = 169
@@ -210,7 +220,7 @@ object Formparam: TFormparam
     end
     object DBEdit2: TDBEdit
       Left = 169
-      Top = 188
+      Top = 159
       Width = 225
       Height = 41
       DataField = 'CARS'
@@ -221,7 +231,7 @@ object Formparam: TFormparam
     end
     object DBEdit3: TDBEdit
       Left = 169
-      Top = 270
+      Top = 222
       Width = 225
       Height = 41
       DataField = 'ROUNDMAX'
@@ -232,7 +242,7 @@ object Formparam: TFormparam
     end
     object DBEdit4: TDBEdit
       Left = 169
-      Top = 348
+      Top = 285
       Width = 225
       Height = 41
       DataField = 'PLCIP'
@@ -243,7 +253,7 @@ object Formparam: TFormparam
     end
     object DBEdit5: TDBEdit
       Left = 169
-      Top = 428
+      Top = 343
       Width = 225
       Height = 41
       DataField = 'CTRLIP'
@@ -254,7 +264,7 @@ object Formparam: TFormparam
     end
     object DBEdit6: TDBEdit
       Left = 169
-      Top = 507
+      Top = 403
       Width = 225
       Height = 41
       DataField = 'PORT00'
@@ -262,6 +272,28 @@ object Formparam: TFormparam
       Enabled = False
       ImeName = #20013#25991' - QQ'#25340#38899#36755#20837#27861
       TabOrder = 5
+    end
+    object DBEdit7: TDBEdit
+      Left = 169
+      Top = 459
+      Width = 225
+      Height = 41
+      DataField = 'BARCODEIP'
+      DataSource = DMtest.DSparameter
+      Enabled = False
+      ImeName = #20013#25991' - QQ'#25340#38899#36755#20837#27861
+      TabOrder = 6
+    end
+    object DBEdit8: TDBEdit
+      Left = 169
+      Top = 518
+      Width = 225
+      Height = 41
+      DataField = 'BARCODEPORT'
+      DataSource = DMtest.DSparameter
+      Enabled = False
+      ImeName = #20013#25991' - QQ'#25340#38899#36755#20837#27861
+      TabOrder = 7
     end
   end
   object Panel1: TPanel
@@ -279,7 +311,6 @@ object Formparam: TFormparam
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 1282
   end
   object Btnedit: TButton
     Left = 3

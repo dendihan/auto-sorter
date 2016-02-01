@@ -165,19 +165,22 @@ begin
   ClosePrinter(Handle);
   Result := 0;
 end;
-
+// use GETFONTHEX in 'fnthex32.dll' to print chinese
 function PrtChnStr(x, y: Integer; fontname: ansistring; height, xmf, ymf: Integer; chnstr: ansistring): ansistring;
 var
   ret: ansistring;
   count: Integer;
   buf: ansistring;
+//  dataname: ansistring;
 begin
+//  dataname:='OUTSTR01';
   result := '';
   if chnstr <> '' then
   begin
-    setlength(buf, 21 * 1024);
-    count := GETFONTHEX(chnstr, fontname, 0, height, 0, 1, 0, buf);
-    if count > 0 then
+    setlength(buf, 21 * 1024);//must be allocate first add by dendi
+    count := GETFONTHEX(chnstr, fontname,0, height, 0, 1, 0, buf);
+    //orient=0 height=height width=0 bold=1 italic=0 buf=buf
+    if count > 0 then //count>0 means success
     begin
       ret := Copy(buf, 1, count);
       result := ret + '^FO' + inttostr(x) + ',' + inttostr(y) + '^XGOUTSTR01,' + inttostr(xmf) + ',' +
@@ -198,7 +201,7 @@ begin
   fontsize2 := 45;
   // 128码
   prtstr := '^XA^LL540^PW1080^IA6^XZ^FS^XA^FS^MD10^BY3,3^LH20,23^FS';
-
+      // ^XA^LL540^PW1080^IA6^XZ setting printer
   tempstr := '^FO400,50^BC,150^FD';
   prtstr := prtstr + tempstr;
   tempstr := code128 + '^FS';
@@ -231,6 +234,8 @@ begin
 end;
 
 //------------------showaction below------------
+//check whcih action is enable in DB
+//use actionlist to manage
 procedure TFormMain.enableaction;
 var
   group:string;
@@ -267,6 +272,7 @@ begin
           end;
       end;
 end;
+//this function is used to record USER'S action
 procedure TFormMain.RecordLog(loginfo: string);
 begin
   try
@@ -285,7 +291,7 @@ begin
     Application.MessageBox('无法连接数据库服务器！','提示', MB_OK);
   end;
 end;
-
+//this function is used to record error in application
 procedure TFormMain.ErrorLog(loginfo: string);
 begin
   try
@@ -322,6 +328,7 @@ begin
   GloballocalIP:=IdIPWatch1.LocalIP;
 //  showmessage(GlobalXMLFile);
   //SQL connect
+//load SQL connstring in para.ini
   try
     AssignFile(TextFileVar,'Para.ini');
     Reset(TextFileVar);

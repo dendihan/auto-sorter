@@ -78,6 +78,10 @@ type
     cxGrid2DBTableView1OPCITEMEND: TcxGridDBColumn;
     cxGrid2DBTableView1PRINTIP: TcxGridDBColumn;
     cxGrid2DBTableView1STAT00: TcxGridDBColumn;
+    Label7: TLabel;
+    DBEdit7: TDBEdit;
+    Label8: TLabel;
+    DBEdit8: TDBEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure BtncloseClick(Sender: TObject);
@@ -117,6 +121,8 @@ begin
   DBEdit4.Enabled:=true;
   DBEdit5.Enabled:=true;
   DBEdit6.Enabled:=true;
+  DBEdit7.Enabled:=true;
+  DBEdit8.Enabled:=true;
 end;
 
 procedure TFormparam.BtnaddinClick(Sender: TObject);
@@ -179,6 +185,8 @@ begin
       DBEdit4.Enabled:=false;
       DBEdit5.Enabled:=false;
       DBEdit6.Enabled:=false;
+      DBEdit7.Enabled:=false;
+      DBEdit8.Enabled:=false;
   end;
 end;
 

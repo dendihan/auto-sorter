@@ -72,6 +72,7 @@ begin
         Parameters.ParamByName('fjdt2').Value:=formatdatetime('yyyy-mm-dd',DateTimePicker2.Date);
         open;
        end;
+  //dendi comment:convert(varchar(10),DATE00,23) to output DB datetime   as  yyyy-mm-dd
   except
      Application.MessageBox('无法连接数据库','提示', MB_OK);
   end;

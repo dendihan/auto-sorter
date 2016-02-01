@@ -73,6 +73,7 @@ begin
     Formuseredit.ShowModal;
 //    DM.ADO_URGP_query.Edit;
     //freeandnil(Formshowcol);
+   //var save to indicate whether new user save or not
     if save=1 then
       FormMain.RecordLog('ÃÌº””√ªß:'+DM.ADO_USER_query.FieldByName('NAME00').AsString);
     Formuseredit.Free;

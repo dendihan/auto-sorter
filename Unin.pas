@@ -147,8 +147,8 @@ var
   I_OverTask: Integer; // 完成任务
   I_AllTask: Integer; // 所有任务
   I_TcpRec: string;
-  I_OpcItemID: string;
-  beginFlag : Integer = 1;
+  I_OpcItemID: string;     //in opcid for address which uesd to write out code
+  beginFlag : Integer = 1;//comport begin
 
 implementation
 
@@ -180,9 +180,9 @@ begin
             LockGuid.Release;
     //         显示图片
     //        showmessage(I_Filename);
-            sleep(800);
+            sleep(800);    //wait for FTP receive file
             Synchronize(FormIn.RefreshImg);
-            for I := 0 to 6 do
+            for I := 0 to 6 do  //display time for one picture
               begin
                 if next then
                   break;
